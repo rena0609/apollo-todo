@@ -1,13 +1,18 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 
 export const generateHelloWorld = () => {
   return "hello world.";
 };
-
 export const App = () => {
+  const [isMounted, setMount] = useState(false);
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
   return (
-    <div>
-      <div>{generateHelloWorld()}</div>
+    <div data-testid="text">
+      {isMounted && <div>{generateHelloWorld()}</div>}
     </div>
   );
 };
