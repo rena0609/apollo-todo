@@ -47,5 +47,7 @@
     "fmt": "prettier --write 'src/**/*.js'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-  }
+  },
+  "repository": "https://github.com/rena0609/apollo-study.git",
+  "author": "Rena <choco.rena0609@gmail.com>"
 }
