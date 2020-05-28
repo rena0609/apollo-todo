@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { TaskLists } from "./TaskLists/TaskLists";
 
-export const generateHelloWorld = () => {
-  return "hello world.";
-};
-export const App = () => {
-  const [isMounted, setMount] = useState(false);
-
-  useEffect(() => {
-    setMount(true);
-  }, []);
-
+export const App: React.FC = () => {
   return (
-    <div data-testid="text">
-      {isMounted && <div>{generateHelloWorld()}</div>}
-    </div>
+    <>
+      <TaskLists />
+    </>
   );
 };
