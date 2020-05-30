@@ -50,8 +50,8 @@
   },
   "scripts": {
     "schema": "apollo schema:download --endpoint=http://localhost:4000 ./src/schema.json",
-    "codegen": "apollo codegen:generate ./src/**/queries.ts --target typescript --output ./src/__generated__/types.ts",
-    "fmt": "prettier --write 'src/**/*.js'",
+    "codegen": "apollo client:codegen --globalTypesFile=./src/__generated__/types.ts --target=typescript --outputFlat=./src/__generated__/types.ts",
+    "fmt": "prettier --write 'src/**/*.tsx'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

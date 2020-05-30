@@ -1,9 +1,10 @@
 module.exports = {
   client: {
     service: {
-      includes: ["src/**/*.ts"],
+      includes: ["./src/**/**.ts"],
       tagName: "gql",
       addType: true,
+      localSchemaFile: "./src/schema.json",
       service: {
         // endpoint
         name: "sever",

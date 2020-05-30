@@ -1,11 +1,9 @@
 import { gql } from "apollo-boost";
 
-//ToDo:型定義ファイルの自動生成
-export const TaskListsQuery = gql`
-  query TaskLists {
-    TaskLists {
+export const TasksQuery = gql`
+  query tasks {
+    tasks {
       title
-      deadline
       status
     }
   }
