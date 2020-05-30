@@ -1,10 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_DOGS } from "./TaskList";
+import { TasksQuery } from "./queries";
 
 export const TaskLists: React.FC = () => {
-  //ToDo:型定義ファイルから型の読み込み
-  const { loading, error, data } = useQuery<any>(GET_DOGS);
+  const { loading, error, data } = useQuery(TasksQuery);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;

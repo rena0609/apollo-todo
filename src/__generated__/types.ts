@@ -9,6 +9,7 @@
 
 export interface tasks_tasks {
   __typename: "Task";
+  id: number;
   title: string;
   status: string | null;
 }
