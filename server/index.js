@@ -1,30 +1,36 @@
 const { ApolloServer, gql } = require("apollo-server");
 
 const typeDefs = gql`
+  type Mutation {
+    createNewTask(input: TaskInput!): [Task!]
+  }
+
+  input TaskInput {
+    id: Int!
+    title: String!
+    status: String
+  }
+
   type Task {
-    title: String
-    deadline: String
+    id: Int!
+    title: String!
     status: String
   }
 
   type Query {
-    tasks: [Task]
-  }
-
-  type Mutation {
-    addTask(title: String, deadline: String, status: String): Task
+    tasks: [Task!]!
   }
 `;
 
 const tasks = [
   {
+    id: 1,
     title: "Todoアプリを作る",
-    deadline: "2020/05/31",
     status: "未完了",
   },
   {
+    id: 2,
     title: "graphQLをマスターする",
-    deadline: "2020/06/20",
     status: "完了",
   },
 ];
@@ -32,6 +38,18 @@ const tasks = [
 const resolvers = {
   Query: {
     tasks: () => tasks,
+  },
+  Mutation: {
+    createNewTask: (_, { input: { title, status } }) => {
+      const id = tasks[tasks.length - 1].id + 1;
+      const newTask = {
+        id,
+        title,
+        status,
+      };
+      tasks.push(newTask);
+      return tasks;
+    },
   },
 };
 
