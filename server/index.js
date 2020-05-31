@@ -2,17 +2,17 @@ const { ApolloServer, gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Mutation {
-    createNewTask(input: TaskInput!): [Task!]
+    createNewTask(input: TaskInput): [Task!]
   }
 
   input TaskInput {
-    id: Int!
+    id: Int
     title: String!
     status: String
   }
 
   type Task {
-    id: Int!
+    id: Int
     title: String!
     status: String
   }
